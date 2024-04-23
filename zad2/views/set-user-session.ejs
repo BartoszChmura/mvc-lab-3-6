@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1>Set User</h1>
+    <% if (users.length > 0) { %>
+        <form action="/user/set" method="POST">
+            <div>
+                <label for="userId">User:</label>
+                <select name="userId" id="userId">
+                    <% users.forEach(function(user) { %>
+                        <option value="<%= user.id %>"><%= user.login %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <button type="submit">Set user</button>
+        </form>
+    <% } else { %>
+        <p>Sorry, no users has been found.</p>
+    <% } %>
+    <a href="/">Back to Home</a>
+</body>
+</html>
